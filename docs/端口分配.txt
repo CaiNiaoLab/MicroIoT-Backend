@@ -1,0 +1,8 @@
+web:18888
+authority:18890
+eureka:20000
+api-gateway:20010
+goods:19902
+manager:19903
+orderL19904
+mq:19904

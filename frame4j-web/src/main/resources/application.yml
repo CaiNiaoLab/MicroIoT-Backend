@@ -1,0 +1,40 @@
+server:
+    port: 18888                                                # 配置端口号
+    tomcat:
+      uri-encoding: UTF-8
+spring:
+  application:
+    name: fram4j-web
+  datasource:
+    url: jdbc:mysql://94.191.124.125:3306/frame4j?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8    #第一个坑 mysql时区问题  serverTimezone=GMT%2B8
+    username: root
+    password: Jyc741026254
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect                     #解决数据库不生成外键问题
+  thymeleaf:
+    cache: false            #禁用thymleaf缓存，达到页面改完及刷新
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false  #懒加载序列化出错  Could not write content: No serializer found for class and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) )
+    time-zone: GMT+8  #时间日区
+    date-format: yyyy-MM-dd HH:mm:ss  #jackson日期格式
+  redis:
+    host: 94.191.124.125
+    port: 6380
+    timeout: 20000
+    password: wtf3h9rpyjy
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 0
+        min-idle: 8
+        max-wait: -1
+logging:
+  level:
+    org.springframework.web: DEBUG
+    com.frame4j: DEBUG
+  file:  "frame4j/${spring.application.name}.log"

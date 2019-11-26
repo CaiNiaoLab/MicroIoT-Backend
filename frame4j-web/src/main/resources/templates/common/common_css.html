@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common_css(title,links,styles)">
+    <!-- 全局meta -->
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- 通用title -->
+	<title th:replace="${title}">common_header</title>
+	
+    <!-- 全局css -->
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all" />
+	<link rel="stylesheet" th:href="@{/css/public.css}" media="all" />
+	
+	<!-- bootstrap css -->
+	<link rel="stylesheet" th:href="@{/plugin/bootstrap/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/plugin/bootstrap/css/bootstrap-theme.min.css}" /> 
+	
+	<!-- 图标库 -->
+    <link rel="stylesheet" th:href="@{/plugin/fontawesome/css/all.min.css}" media="all" />
+    
+    <!-- 扩展links -->
+    <th:block th:replace="${links}" />
+    
+    <!-- 扩展style -->
+    <th:block th:replace="${styles}" />
+    
+    <!-- blockquote  font-size 搜索框字体    overflow 灰色框包住所有 -->
+    <style type="text/css">
+		blockquote{
+			font-size: 13px;
+		}
+	</style>
+</head>

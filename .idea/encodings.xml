@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frame4j-api-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frame4j-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frame4j-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frame4j-entity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frame4j-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frame4j-manager" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frame4j-mq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frame4j-portal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frame4j-shop-goods" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frame4j-shop-manager" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frame4j-shop-order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frame4j-web" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/frame4j-api-gateway/frame4j-api-gateway.iml" filepath="$PROJECT_DIR$/frame4j-api-gateway/frame4j-api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/frame4j-cloud.iml" filepath="$PROJECT_DIR$/.idea/frame4j-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frame4j-common/frame4j-common.iml" filepath="$PROJECT_DIR$/frame4j-common/frame4j-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frame4j-core/frame4j-core.iml" filepath="$PROJECT_DIR$/frame4j-core/frame4j-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frame4j-entity/frame4j-entity.iml" filepath="$PROJECT_DIR$/frame4j-entity/frame4j-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frame4j-eureka/frame4j-eureka.iml" filepath="$PROJECT_DIR$/frame4j-eureka/frame4j-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frame4j-manager/frame4j-manager.iml" filepath="$PROJECT_DIR$/frame4j-manager/frame4j-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frame4j-portal/frame4j-portal.iml" filepath="$PROJECT_DIR$/frame4j-portal/frame4j-portal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frame4j-shop-goods/frame4j-shop-goods.iml" filepath="$PROJECT_DIR$/frame4j-shop-goods/frame4j-shop-goods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frame4j-shop-manager/frame4j-shop-manager.iml" filepath="$PROJECT_DIR$/frame4j-shop-manager/frame4j-shop-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frame4j-shop-order/frame4j-shop-order.iml" filepath="$PROJECT_DIR$/frame4j-shop-order/frame4j-shop-order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frame4j-web/frame4j-web.iml" filepath="$PROJECT_DIR$/frame4j-web/frame4j-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frame4j-mq/frame4jmq.iml" filepath="$PROJECT_DIR$/frame4j-mq/frame4jmq.iml" />
+    </modules>
+  </component>
+</project>

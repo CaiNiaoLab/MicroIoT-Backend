@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="common_js">
+	<!-- <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+        window.basePath = [(@{/})] + "a/" ;
+        /*]]>*/
+    </script> -->
+    <script type="text/javascript" th:src="@{/plugin/jquery/jquery-2.1.1.min.js}"></script>
+	<script type="text/javascript" th:src="@{/layui/layui.js}"></script>
+	<script type="text/javascript" th:src="@{/js/openJ.js}"></script>
+	<script type="text/javascript" th:src="@{/plugin/bootstrap/js/bootstrap.min.js}"></script>
+</div>
+</html>

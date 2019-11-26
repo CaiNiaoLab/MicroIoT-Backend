@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="frame4j-common" />
+        <module name="frame4j-web" />
+        <module name="frame4j-eureka" />
+        <module name="frame4j-shop-order" />
+        <module name="frame4j-manager" />
+        <module name="frame4j-api-gateway" />
+        <module name="frame4j-core" />
+        <module name="frame4j-shop-goods" />
+        <module name="frame4j-shop-manager" />
+        <module name="frame4j-portal" />
+        <module name="frame4j-entity" />
+        <module name="frame4jmq" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="frame4j-api-gateway" target="1.8" />
+      <module name="frame4j-cloud" target="1.8" />
+      <module name="frame4j-common" target="1.8" />
+      <module name="frame4j-core" target="1.8" />
+      <module name="frame4j-entity" target="1.8" />
+      <module name="frame4j-eureka" target="1.8" />
+      <module name="frame4j-manager" target="1.8" />
+      <module name="frame4j-portal" target="1.8" />
+      <module name="frame4j-shop-goods" target="1.8" />
+      <module name="frame4j-shop-manager" target="1.8" />
+      <module name="frame4j-shop-order" target="1.8" />
+      <module name="frame4j-web" target="1.8" />
+      <module name="frame4jmq" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="frame4j-api-gateway" options="-parameters" />
+      <module name="frame4j-common" options="-parameters" />
+      <module name="frame4j-core" options="-parameters" />
+      <module name="frame4j-entity" options="-parameters" />
+      <module name="frame4j-eureka" options="-parameters" />
+      <module name="frame4j-manager" options="-parameters" />
+      <module name="frame4j-portal" options="-parameters" />
+      <module name="frame4j-shop-goods" options="-parameters" />
+      <module name="frame4j-shop-manager" options="-parameters" />
+      <module name="frame4j-shop-order" options="-parameters" />
+      <module name="frame4j-web" options="-parameters" />
+      <module name="frame4jmq" options="-parameters" />
+    </option>
+  </component>
+</project>

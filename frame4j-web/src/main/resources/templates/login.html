@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="loginHtml" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/common_css :: common_css(~{::title},~{},~{})">
+	<title>登录</title>
+</head>
+<body class="loginBody">
+	<form class="layui-form">
+		<div class="login_face"><img th:src="@{images/face.jpg}" class="userAvatar"></div>
+		<div class="layui-form-item input-item">
+			<label for="loginName">用户名</label>
+			<input type="text" placeholder="请输入用户名" autocomplete="off" id="loginName" class="layui-input" lay-verify="required">
+		</div>
+		<div class="layui-form-item input-item">
+			<label for="password">密码</label>
+			<input type="password" placeholder="请输入密码" autocomplete="off" id="password" class="layui-input" lay-verify="required">
+		</div>
+		<div class="layui-form-item input-item" id="imgCode">
+			<label for="code">验证码</label>
+			<input type="text" placeholder="请输入验证码" autocomplete="off" id="code" class="layui-input">
+			<img th:src="@{/images/code.jpg}">
+		</div>
+		<div class="layui-form-item">
+			<input type="button" class="layui-btn" style="float: left; margin-left: 10px;" lay-filter="login" lay-submit value="登录" />
+			<input type="button" class="layui-btn" style="float: right; margin-right: 10px;" onclick="register();" value="注册" />
+		</div>
+		<div class="layui-form-item layui-row">
+			<a href="javascript:;" class="seraph icon-qq layui-col-xs4 layui-col-sm4 layui-col-md4 layui-col-lg4"></a>
+			<a href="javascript:;" class="seraph icon-wechat layui-col-xs4 layui-col-sm4 layui-col-md4 layui-col-lg4"></a>
+			<a href="javascript:;" class="seraph icon-sina layui-col-xs4 layui-col-sm4 layui-col-md4 layui-col-lg4"></a>
+		</div>
+	</form>
+	<div th:replace="common/common_js :: common_js"></div>
+	<script type="text/javascript" th:src="@{/js/cache.js}"></script>
+	<script type="text/javascript">
+		layui.use(['form','layer','jquery'],function(){
+		    var form = layui.form,
+		        layer = parent.layer === undefined ? layui.layer : top.layer
+		        $ = layui.jquery;
+
+		    $(".loginBody .seraph").click(function(){
+		        layer.msg("这只是做个样式，至于功能，你见过哪个后台能这样登录的？还是老老实实的找管理员去注册吧",{
+		            time:5000
+		        });
+		    })
+
+		    //登录按钮
+		    form.on("submit(login)",function(data){
+		        $.ajax({
+		        	method : "POST",
+		        	url : "http://locahost:18890/login",
+		        	data : {loginName:$("#loginName").val(), password:$("#password").val()},
+		        	beforeSend : function(){
+		        		$(this).text("登录中...").attr("disabled","disabled").addClass("layui-disabled");
+		        	},
+		        	success : function(data){
+		        		alert(data);
+		        		if(data.status != 200){
+		        			layer.msg(data.msg, {time:2000, icon:5, shift:6}, function(){});
+		        			return false;
+		        		}else{
+		        			window.location.href = "/index";
+		        		}
+		        	}
+		        });
+		    })
+		    //表单输入效果
+		    $(".loginBody .input-item").click(function(e){
+		        e.stopPropagation();
+		        $(this).addClass("layui-input-focus").find(".layui-input").focus();
+		    })
+		    $(".loginBody .layui-form-item .layui-input").focus(function(){
+		        $(this).parent().addClass("layui-input-focus");
+		    })
+		    $(".loginBody .layui-form-item .layui-input").blur(function(){
+		        $(this).parent().removeClass("layui-input-focus");
+		        if($(this).val() != ''){
+		            $(this).parent().addClass("layui-input-active");
+		        }else{
+		            $(this).parent().removeClass("layui-input-active");
+		        }
+		    })
+		})
+
+        //注册按钮
+        function register(){
+            //跳转注册页面
+            window.location.href = "/register";
+        }
+	</script>
+</body>
+</html>

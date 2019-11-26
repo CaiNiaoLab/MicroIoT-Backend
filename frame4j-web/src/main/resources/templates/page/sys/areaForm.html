@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/common_css :: common_css(~{::title},~{},~{})">
+	<title>区域页</title>
+</head>
+<body class="childrenBody">
+<form class="layui-form" style="margin-left:10%; width:80%;">
+	<input type="hidden" id="id" name="id" value="123">
+	 <div class="layui-row layui-form-item">
+		 <div class="layui-col-md6  layui-col-xs6">
+			<label class="layui-form-label">上级区域</label>
+			<div class="layui-input-block">
+				 <input th:replace="common/treeselect :: treeselect('parent','parent.id',${area?.parent?.id},'parent.name',${area?.parent?.name},'上级区域','/sys/area/treeData',${area?.id},'form-control',true,true)"> 
+			</div>
+		</div>
+		
+		<div class="layui-col-md6  layui-col-xs6">
+			<label class="layui-form-label">区域名称</label>
+			<div class="layui-input-block">
+				<input type="text" class="layui-input name" lay-verify="required" placeholder="请输入区域名称">
+			</div>
+		</div>
+	 </div>
+	
+	<div class="layui-row layui-form-item">
+		<div class="layui-col-md6  layui-col-xs6">
+			<label class="layui-form-label">区域编码</label>
+			<div class="layui-input-block">
+				<input type="text" class="layui-input code" lay-verify="required" placeholder="请输入区域编码">
+			</div>
+		</div>
+		
+		<div class="magb15 layui-col-md6  layui-col-xs6">
+				<label class="layui-form-label">区域类型</label>
+				<div class="layui-input-block">
+					<select name="types" class="types" lay-filter="types">
+						<option value="0">国家</option>
+						<option value="1">省份、直辖市</option>
+						<option value="2">地市</option>
+						<option value="3">区县</option>
+					</select>
+				</div>
+		 </div>
+	</div>
+	 
+	 <div class="layui-form-item layui-row layui-col-xs12">
+		<label class="layui-form-label">备注</label>
+		<div class="layui-input-block">
+			<textarea placeholder="请输入备注" class="layui-textarea remarks"></textarea>
+		</div>
+	</div>
+	
+	<div class="layui-form-item layui-row layui-col-xs12">
+		<div class="layui-input-block">
+			<input type="button" class="layui-btn layui-btn-sm" lay-submit="" lay-filter="addUser" value="立即添加"></input>
+			<input type="reset" class="layui-btn layui-btn-sm layui-btn-primary" value="重置"></input>
+		</div>
+	</div>
+</form>
+<div th:replace="common/common_js :: common_js"></div>
+<script type="text/javascript" th:src="@{/page/sys/areaForm.js}"></script>
+</body>
+</html>

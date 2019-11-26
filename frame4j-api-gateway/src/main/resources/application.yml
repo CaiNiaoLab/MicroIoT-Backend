@@ -1,0 +1,31 @@
+###服务注册地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:20000/eureka/
+###api网关端口号
+server:
+  port: 20010
+###网关名称
+spring:
+  application:
+    name: frame4j-zuul
+zuul:
+  routes:
+    ###定义转发服务规则
+    api-shop-manager:
+      ### 当客户端发送请求 127.0.0.1:20010/api-member开头的 都会转发到会员服务
+      path: /api-shop-manager/**
+      ###服务别名  zuul网关默认整合ribbon 自动实现负载均衡轮训效果
+      serviceId: frame4j-shop-manager
+    api-shop-goods:
+      ### 当客户端发送请求 127.0.0.1:20010/api-order开头的 都会转发到订单服务
+      path: /api-shop-goods/**
+      ##订单服务别名
+      serviceId: frame4j-shop-goods
+###默认服务读取eureka注册服务列表 默认间隔30秒
+    api-mq:
+      ### 当客户端发送请求 127.0.0.1:20010/api-order开头的 都会转发到订单服务
+      path: /api-mq/**
+      ##订单服务别名
+      serviceId: frame4j-mq

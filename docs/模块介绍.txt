@@ -1,0 +1,11 @@
+common:公共模块，包括抽取的公共的实体类，repository，service。
+core:核心模块，包括基本的核心配置。
+entity:实体类模块，包括部分实体类，防止重复创建同一个实体类，防止代码冗余。
+manager:管理模块，包括后台系统模块的repository，service。后期准备新开发一个模块，用来放其他的repository，service。
+portal:主页前端模块，包括前端的主页，主要负责前端交互页。
+web:后台模块，主要包括后台的控制层。
+authority:权限控制模块，全局通过jwt来校验。
+eureka:eureka注册中心。
+api-gateway:zuul搭建的网关。
+三个调用链。
+mq:rabbitmq项目。

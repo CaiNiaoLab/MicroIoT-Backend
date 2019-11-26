@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class="loginHtml" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/common_css :: common_css(~{::title},~{},~{})">
+	<title>注册</title>
+</head>
+<body class="loginBody">
+	<form class="layui-form">
+		<div class="login_face"><img th:src="@{images/face.jpg}" class="userAvatar"></div>
+		<div class="layui-form-item input-item">
+			<label for="loginName">用户名</label>
+			<input type="text" placeholder="请输入用户名" autocomplete="off" id="loginName" class="layui-input" lay-verify="required">
+		</div>
+		<div class="layui-form-item input-item">
+			<label for="password">密码</label>
+			<input type="password" placeholder="请输入密码" autocomplete="off" id="password" class="layui-input" lay-verify="required">
+		</div>
+		<div class="layui-form-item input-item" id="imgCode">
+			<label for="code">验证码</label>
+			<input type="text" placeholder="请输入验证码" autocomplete="off" id="code" class="layui-input">
+			<img th:src="@{/images/code.jpg}">
+		</div>
+		<div class="layui-form-item">
+			<input type="button" class="layui-btn layui-block" lay-filter="registe" lay-submit value="注册"></input>
+		</div>
+	</form>
+	<div th:replace="common/common_js :: common_js"></div>
+	<script type="text/javascript" th:src="@{/js/cache.js}"></script>
+	<script type="text/javascript">
+		layui.use(['form','layer','jquery'],function(){
+		    var form = layui.form,
+		        layer = parent.layer === undefined ? layui.layer : top.layer
+		        $ = layui.jquery;
+	
+		    //注册按钮
+		    form.on("submit(registe)",function(data){
+		        $.ajax({
+		        	method : "POST",
+		        	url : "/register",
+		        	data : {loginName:$("#loginName").val(), password:$("#password").val()},
+		        	beforeSend : function(){
+		        		$(this).text("注册中...").attr("disabled","disabled").addClass("layui-disabled");
+		        	},
+		        	success : function(data){
+		        		if(data.status != 200){
+		        			layer.msg(data.msg, {time:2000, icon:5, shift:6}, function(){});
+		        			return false;
+		        		}else{
+		        			window.location.href = "/login";
+		        		}
+		        	}
+		        });
+		    })
+		    //表单输入效果
+		    $(".loginBody .input-item").click(function(e){
+		        e.stopPropagation();
+		        $(this).addClass("layui-input-focus").find(".layui-input").focus();
+		    })
+		    $(".loginBody .layui-form-item .layui-input").focus(function(){
+		        $(this).parent().addClass("layui-input-focus");
+		    })
+		    $(".loginBody .layui-form-item .layui-input").blur(function(){
+		        $(this).parent().removeClass("layui-input-focus");
+		        if($(this).val() != ''){
+		            $(this).parent().addClass("layui-input-active");
+		        }else{
+		            $(this).parent().removeClass("layui-input-active");
+		        }
+		    })
+		})
+	</script>
+</body>
+</html>

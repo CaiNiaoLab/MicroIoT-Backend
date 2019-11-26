@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/common_css :: common_css(~{::title},~{},~{})">
+	<title>字典类别</title>
+</head>
+<body class="childrenBody">
+<form class="layui-form" style="margin-left:10%; width:80%;">
+	<input type="hidden" id="id" name="id">
+	<input type="hidden" id="isNewCreate" name="isNewCreate" value="true">
+	 <div class="layui-row layui-form-item">
+		 <div class="layui-col-md6  layui-col-xs6">
+			<label class="layui-form-label">字典名称</label>
+			<div class="layui-input-block">
+				<input type="text" class="layui-input name" lay-verify="required">
+			</div>
+		</div>
+		
+		<div class="layui-col-md6  layui-col-xs6">
+			<label class="layui-form-label">字典类型</label>
+			<div class="layui-input-block">
+				<input type="text" class="layui-input type" lay-verify="required">
+			</div>
+		</div>
+	 </div>
+	
+	<div class="layui-row layui-form-item">
+		<div class="layui-col-md6  layui-col-xs6">
+			<label class="layui-form-label">排序号</label>
+			<div class="layui-input-block">
+				<input type="text" class="layui-input sort" lay-verify="required" value="30">
+			</div>
+		</div>
+		
+	</div>
+	 
+	 <div class="layui-form-item layui-row layui-col-xs12">
+		<label class="layui-form-label">备注</label>
+		<div class="layui-input-block">
+			<textarea class="layui-textarea remarks"></textarea>
+		</div>
+	</div>
+	
+	<div class="layui-form-item layui-row layui-col-xs12">
+		<div class="layui-input-block">
+			<input type="button" class="layui-btn layui-btn-sm" lay-submit="" lay-filter="addDictCategory" value="保存"></input>
+			<input type="reset" class="layui-btn layui-btn-sm layui-btn-primary" value="重置"></input>
+		</div>
+	</div>
+</form>
+<div th:replace="common/common_js :: common_js"></div>
+<script type="text/javascript" th:src="@{/page/sys/dictCategoryForm.js}"></script>
+</body>
+</html>

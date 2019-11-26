@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/common_css :: common_css(~{::title},~{},~{})">
+	<title>字典数据管理</title>
+</head>
+<body class="childrenBody">
+<form class="layui-form">
+	<blockquote class="layui-elem-quote quoteBox">
+		<form class="layui-form">
+			<div class="layui-row">
+				<div class="layui-col-md11">
+					<div class="layui-inline layui-col-md11">
+						<label style="font-weight: normal;">描述:</label>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" id="remarks" placeholder="">
+							<input type="hidden" class="layui-input" th:value="${dictCategoryId}" id="dictCategoryId" name="dictCategoryId">
+						</div>
+					</div>
+				</div>
+				
+				<div class="layui-col-md1">
+					<div class="layui-inline">
+						<button type="button" class="layui-btn layui-btn-sm layui-btn-normal layui-btn-radius search" data-type="reload">
+			  				<i class="layui-icon">&#xe615;</i> 搜索
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</blockquote>
+	<table id="dictList" lay-filter="dictList"></table>
+	<!--操作-->
+	<script type="text/html" id="dictListBar">
+		<i title="编辑" class="layui-icon layui-anim layui-anim-scaleSpring layui-btn layui-btn-xs" lay-event="edit">&#xe642;</i>
+		<i title="删除" class="layui-icon layui-anim layui-anim-scaleSpring layui-btn layui-btn-xs layui-btn-danger" lay-event="del">&#xe640;</i>
+  			
+	</script>
+	
+	<!--左上操作-->
+	<script type="text/html" id="dictListLeftBar">
+  			<button class="layui-btn layui-btn-sm add">
+  				<i class="layui-icon">&#xe608;</i> 添加
+			</button>
+			<button class="layui-btn layui-btn-sm layui-btn-danger delAll">
+  				<i class="layui-icon">&#xe640;</i> 批量删除
+			</button>
+	</script>
+</form>
+<div th:replace="common/common_js :: common_js"></div>
+<script type="text/javascript" th:src="@{/page/sys/dictList.js}"></script>
+<script type="text/javascript">
+	$(function () {
+	});
+</script>
+</body>
+</html>

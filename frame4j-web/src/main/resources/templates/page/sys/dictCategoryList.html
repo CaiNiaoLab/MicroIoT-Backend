@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/common_css :: common_css(~{::title},~{},~{})">
+	<title>字典类别管理</title>
+</head>
+<body class="childrenBody">
+<form class="layui-form">
+	<blockquote class="layui-elem-quote quoteBox">
+		<form class="layui-form">
+			<div class="layui-row">
+				<div class="layui-col-md11">
+					<div class="layui-inline layui-col-md5">
+						<label style="font-weight: normal;">字典名称:</label>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" id="name" placeholder="">
+						</div>
+					</div>
+					
+					<div class="layui-inline layui-col-md6">
+						<label style="font-weight: normal;">字典类型:</label>
+						<div class="layui-input-inline">
+							<select name="type" class="type" lay-search>
+								<option value="">全部</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				
+				<div class="layui-col-md1">
+					<div class="layui-inline">
+						<button type="button" class="layui-btn layui-btn-sm layui-btn-normal layui-btn-radius search" data-type="reload">
+			  				<i class="layui-icon">&#xe615;</i> 搜索
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</blockquote>
+	<table id="dictCategoryList" lay-filter="dictCategoryList"></table>
+	<!--操作-->
+	<script type="text/html" id="dictCategoryListBar">
+		<i title="编辑" class="layui-icon layui-anim layui-anim-scaleSpring layui-btn layui-btn-xs" lay-event="edit">&#xe642;</i>
+		<i data-url="/sys/dict/list" title="字典数据" data-icon="" class="layui-icon layui-anim layui-anim-scaleSpring layui-btn layui-btn-xs layui-btn-normal" lay-event="dict">&#xe62d;</i>
+		<i title="删除" class="layui-icon layui-anim layui-anim-scaleSpring layui-btn layui-btn-xs layui-btn-danger" lay-event="del">&#xe640;</i>
+  			
+	</script>
+	
+	<!--左上操作-->
+	<script type="text/html" id="dictCategoryListLeftBar">
+  			<button class="layui-btn layui-btn-sm add">
+  				<i class="layui-icon">&#xe608;</i> 添加
+			</button>
+			<button class="layui-btn layui-btn-sm layui-btn-danger delAll">
+  				<i class="layui-icon">&#xe640;</i> 批量删除
+			</button>
+	</script>
+</form>
+<div th:replace="common/common_js :: common_js"></div>
+<script type="text/javascript" th:src="@{/page/sys/dictCategoryList.js}"></script>
+<script type="text/javascript">
+	$(function () {
+		$.ajax({
+			type : "GET",
+    		url : "ajaxAllDictCategory",
+    		success : function(data){
+    			$(".type").html('<option value="">全部</option>');
+            	$.each(data,function(i,val){
+    				$(".type").append("<option value='" + val.type + "'>" + val.type + "</option>");
+    			});
+    		},
+    		error :function(data){
+    			layer.msg("获取字典类别失败!", {time:1000, icon:5, shift:6}, function(){});
+    		}
+		}); 
+	});
+</script>
+</body>
+</html>
