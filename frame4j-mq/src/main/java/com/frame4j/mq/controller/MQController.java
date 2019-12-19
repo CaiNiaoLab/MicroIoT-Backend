@@ -11,9 +11,9 @@ public class MQController {
     @Autowired
     private SendService sendService;
 
-    @GetMapping("/send")
+    /*@GetMapping("/send")
     public String send(){
         sendService.send();
         return "success";
-    }
+    }*/
 }

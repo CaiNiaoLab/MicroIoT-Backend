@@ -13,11 +13,25 @@ spring:
       probability: 1.0
   rabbitmq:
     host: 112.74.165.209
-    port: 8883
+    port: 5672
     username: guest
     password: guest
+  datasource:
+    url: jdbc:mysql://94.191.124.125:3306/microiot?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8    #第一个坑 mysql时区问题  serverTimezone=GMT%2B8
+    username: root
+    password: Jyc741026254
+    driver-class-name: com.mysql.jdbc.Driver
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false  #懒加载序列化出错  Could not write content: No serializer found for class and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) )
+    time-zone: GMT+8  #时间日区
+    date-format: yyyy-MM-dd HH:mm:ss  #jackson日期格式
 ###服务注册地址
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:20000/eureka/
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

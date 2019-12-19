@@ -1,5 +1,6 @@
 package com.frame4j.mq;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -9,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableEurekaClient
+@MapperScan("com.frame4j.mq.mapper")
 public class Frame4JMQApplication {
     public static void main(String[] args) {
         SpringApplication.run(Frame4JMQApplication.class, args);

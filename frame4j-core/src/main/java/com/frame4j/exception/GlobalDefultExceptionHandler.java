@@ -1,5 +1,6 @@
 package com.frame4j.exception;
 
+import com.frame4j.common.utils.Frame4JResult;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.slf4j.Logger;
@@ -41,12 +42,9 @@ public class GlobalDefultExceptionHandler {
 
     //拦截所有异常
     @ExceptionHandler(Exception.class)
-    public Map<String, Object> handleValidationBodyException(Exception e) {
-        Map<String, Object> map = new HashMap<>();
-        map.put("dataTime", new SimpleDateFormat().format(new Date()));
-        map.put("msg", e.getMessage());
+    public Frame4JResult handleValidationBodyException(Exception e) {
         logger.debug(e.getMessage());
-        return map;
+        return Frame4JResult.build(500, e.getMessage());
     }
 
 }
