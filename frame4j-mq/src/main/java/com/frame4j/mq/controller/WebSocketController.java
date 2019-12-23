@@ -1,6 +1,7 @@
 package com.frame4j.mq.controller;
 
 import com.frame4j.mq.service.ApplicationService;
+import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,7 @@ public class WebSocketController {
             log.info("session.id={}", session.getId());
             if (session.getId().equals(entry.getValue().getId())) {
                 log.info("{}发来消息", entry.getKey());
+                send(message, new Gson().toJson(applicationService.getApplication(entry.getKey())));
             }
             break;
         }

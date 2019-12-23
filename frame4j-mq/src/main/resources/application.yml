@@ -17,9 +17,9 @@ spring:
     username: guest
     password: guest
   datasource:
-    url: jdbc:mysql://94.191.124.125:3306/microiot?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8    #第一个坑 mysql时区问题  serverTimezone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/microiot?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8    #第一个坑 mysql时区问题  serverTimezone=GMT%2B8
     username: root
-    password: Jyc741026254
+    password: 123456
     driver-class-name: com.mysql.jdbc.Driver
   jackson:
     serialization:
