@@ -26,6 +26,16 @@ spring:
       FAIL_ON_EMPTY_BEANS: false  #懒加载序列化出错  Could not write content: No serializer found for class and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) )
     time-zone: GMT+8  #时间日区
     date-format: yyyy-MM-dd HH:mm:ss  #jackson日期格式
+  mqtt:             #MQTT配置信息
+    username: admin     #MQTT-用户名
+    password: admin     #MQTT-密码
+    url: tcp://112.74.165.209:1885      #MQTT-服务器连接地址，如果有多个，用逗号隔开，
+    client:
+      id: mqttId     #MQTT-连接服务器默认客户端ID
+    default:
+      topic: topic    #MQTT-默认的消息推送主题，实际可在调用接口时指定
+    completionTimeout: 3000   #连接超时
+
 ###服务注册地址
 eureka:
   client:
