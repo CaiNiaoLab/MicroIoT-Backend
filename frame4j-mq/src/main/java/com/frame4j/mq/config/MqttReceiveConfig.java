@@ -73,7 +73,7 @@ public class MqttReceiveConfig {
     public MessageProducer inbound() {
         MqttPahoMessageDrivenChannelAdapter adapter =
                 new MqttPahoMessageDrivenChannelAdapter(clientId+"_inbound", mqttClientFactory(),
-                        "hello","hello1");
+                        "/cc3200/TMP006");
         adapter.setCompletionTimeout(completionTimeout);
         adapter.setConverter(new DefaultPahoMessageConverter());
         adapter.setQos(1);
@@ -90,11 +90,9 @@ public class MqttReceiveConfig {
             public void handleMessage(Message<?> message) throws MessagingException {
                 String topic = message.getHeaders().get("mqtt_receivedTopic").toString();
                 String type = topic.substring(topic.lastIndexOf("/")+1, topic.length());
-                if("hello".equalsIgnoreCase(topic)){
-                    System.out.println("hello,fuckXX,"+message.getPayload().toString());
-                }else if("hello1".equalsIgnoreCase(topic)){
-                    System.out.println("hello1,fuckXX,"+message.getPayload().toString());
-                }
+                System.out.println(topic);
+                System.out.println(type);
+                System.out.println(message.getPayload().toString());
             }
         };
     }
